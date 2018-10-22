@@ -6,7 +6,7 @@
 
   function OrdersCtrl($scope, $sce, $state, orders, $mdDialog, ItemService, $mdToast) {
     var OrdersCtrlVM = this;
-    OrdersCtrlVM.orders = orders;
+    OrdersCtrlVM.orders = orders || [];
     OrdersCtrlVM.orderDetail = orderDetail;
     OrdersCtrlVM.orderPresent = OrdersCtrlVM.orders.length > 0;
 

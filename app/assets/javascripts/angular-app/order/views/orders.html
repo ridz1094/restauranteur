@@ -1,6 +1,6 @@
-<md-content>
-  <div ng-if="OrdersCtrlVM.orderPresent">
-  <md-card ng-repeat="order in OrdersCtrlVM.orders">
+<md-content style="min-height: calc(100vh - 120px);">
+  <div >
+    <md-card ng-repeat="order in OrdersCtrlVM.orders" ng-if="OrdersCtrlVM.orderPresent">
         <md-card-content>
           <div layout="row" layout-align="space-between">
             <div>
@@ -13,9 +13,9 @@
           <span style="color:gray;font-size:14px;text-align:justify">Rs. {{order.total_amount}}</span>
         </md-card-content>
       </md-card>
-    </div>
     <div ng-if="!OrdersCtrlVM.orderPresent" layout="row" layout-align="center">
       No order found
+    </div>
     </div>
     <button class="md-fab md-fab-bottom-right docs-scroll-fab md-button md-ink-ripple scrolling" type="button" aria-label="Add" ng-click="OrdersCtrlVM.showAdvanced($event,null,null)">
       <md-icon md-svg-src="images/plus.svg"  role="img" aria-hidden="true"></md-icon>
