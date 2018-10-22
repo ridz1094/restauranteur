@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    @orders = Order.where(user_id: current_user.id)
   end
 
   # GET /orders/1
@@ -16,7 +16,6 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
-    byebug
     @order.user_id = current_user.id
     if !@order.save
       render json: @order.errors, status: :unprocessable_entity
